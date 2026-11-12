@@ -124,3 +124,24 @@ for (let horse of horses) {
     checkBestFriend(horse);
 }
 
+// Feed horses
+function feedHorses() {
+    for (let horse of horses) {
+        if (!horse.isInsideStable) {
+            horse.isInsideStable = true;
+            console.log(horse.name + " came inside for food.");
+        }
+
+        console.log(horse.name + " ate " + horse.favoriteFood + ".");
+        horse.isHungry = false;
+    }
+}
+
+feedHorses();
+
+
+moveHorses(false, theodora, lara);
+
+
+// Bedtime
+moveHorses(true, theodora, lara, pili);
