@@ -81,8 +81,6 @@ function stallsAvailable(totalStalls, occupiedStalls) {
 }
 
 stallsAvailable(totalStalls, horses.length);
-
-logAvailableStalls();
  
 function logLatePayment(horse) {
     let amountOwed = horse.costMonthly + (horse.costMonthly * lateFee);
