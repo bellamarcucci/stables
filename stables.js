@@ -97,3 +97,30 @@ let chosenNickname = getNickname(isabella);
 console.log(chosenNickname);
  
 
+//------------------------- Day to day operations (Project) -------------------------//
+
+let treat = "carrots";
+
+for (let horse of horses) {
+    if (horse.favoriteFood === treat) {
+        console.log(horse.name + " likes " + treat + "!");
+        break;
+    } else {
+        console.log(horse.name + " does not like " + treat + ".");
+    }
+}
+
+
+// Unique property
+function checkBestFriend(horse) {
+    if (horse.bestFriend === "Theodora") {
+        console.log(horse.name + "'s best friend is Theodora!");
+    } else {
+        console.log(horse.name + "'s best friend is " + horse.bestFriend + ".");
+    }
+}
+
+for (let horse of horses) {
+    checkBestFriend(horse);
+}
+
