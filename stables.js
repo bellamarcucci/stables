@@ -74,10 +74,13 @@ lara.isHungry = false;
  
 let totalStalls = 13;
  
-function logAvailableStalls() {
-    let availableStalls = totalStalls - horses.length;
-    console.log("There are " + availableStalls + " stalls available at " + stable + ".");
+
+function stallsAvailable(totalStalls, occupiedStalls) {
+  let availableStalls = totalStalls - occupiedStalls;
+  console.log("There is room for " + availableStalls + " horses.");
 }
+
+stallsAvailable(totalStalls, horses.length);
 
 logAvailableStalls();
  
