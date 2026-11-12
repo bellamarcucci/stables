@@ -78,7 +78,7 @@ function logAvailableStalls() {
     let availableStalls = totalStalls - horses.length;
     console.log("There are " + availableStalls + " stalls available at " + stable + ".");
 }
- 
+
 logAvailableStalls();
  
 function logLatePayment(horse) {
@@ -95,5 +95,4 @@ function getNickname(horse) {
 let chosenNickname = getNickname(isabella);
 console.log(chosenNickname);
  
-
 
