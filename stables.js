@@ -124,6 +124,24 @@ for (let horse of horses) {
     checkBestFriend(horse);
 }
 
+
+// Move horses
+function moveHorses(isDark, ...selectedHorses) {
+    for (let horse of selectedHorses) {
+        if (isDark && !horse.isInsideStable) {
+            horse.isInsideStable = true;
+            console.log(horse.name + " came inside because it's getting dark.");
+        } else if (!isDark && horse.isInsideStable) {
+            horse.isInsideStable = false;
+            console.log(horse.name + " went outside to spend some time in the sun.");
+        }
+    }
+}
+
+
+moveHorses(false, theodora, pili);
+
+
 // Feed horses
 function feedHorses() {
     for (let horse of horses) {
@@ -139,7 +157,7 @@ function feedHorses() {
 
 feedHorses();
 
-
+//Morning
 moveHorses(false, theodora, lara);
 
 
