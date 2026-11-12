@@ -74,12 +74,13 @@ lara.isHungry = false;
  
 let totalStalls = 13;
  
-function logAvailableStalls() {
-    let availableStalls = totalStalls - horses.length;
-    console.log("There are " + availableStalls + " stalls available at " + stable + ".");
+
+function stallsAvailable(totalStalls, occupiedStalls) {
+  let availableStalls = totalStalls - occupiedStalls;
+  console.log("There is room for " + availableStalls + " horses.");
 }
- 
-logAvailableStalls();
+
+stallsAvailable(totalStalls, horses.length);
  
 function logLatePayment(horse) {
     let amountOwed = horse.costMonthly + (horse.costMonthly * lateFee);
@@ -96,4 +97,69 @@ let chosenNickname = getNickname(isabella);
 console.log(chosenNickname);
  
 
+//------------------------- Day to day operations (Project) -------------------------//
 
+let treat = "carrots";
+
+for (let horse of horses) {
+    if (horse.favoriteFood === treat) {
+        console.log(horse.name + " likes " + treat + "!");
+        break;
+    } else {
+        console.log(horse.name + " does not like " + treat + ".");
+    }
+}
+
+
+// Unique property
+function checkBestFriend(horse) {
+    if (horse.bestFriend === "Theodora") {
+        console.log(horse.name + "'s best friend is Theodora!");
+    } else {
+        console.log(horse.name + "'s best friend is " + horse.bestFriend + ".");
+    }
+}
+
+for (let horse of horses) {
+    checkBestFriend(horse);
+}
+
+
+// Move horses
+function moveHorses(isDark, ...selectedHorses) {
+    for (let horse of selectedHorses) {
+        if (isDark && !horse.isInsideStable) {
+            horse.isInsideStable = true;
+            console.log(horse.name + " came inside because it's getting dark.");
+        } else if (!isDark && horse.isInsideStable) {
+            horse.isInsideStable = false;
+            console.log(horse.name + " went outside to spend some time in the sun.");
+        }
+    }
+}
+
+
+moveHorses(false, theodora, pili);
+
+
+// Feed horses
+function feedHorses() {
+    for (let horse of horses) {
+        if (!horse.isInsideStable) {
+            horse.isInsideStable = true;
+            console.log(horse.name + " came inside for food.");
+        }
+
+        console.log(horse.name + " ate " + horse.favoriteFood + ".");
+        horse.isHungry = false;
+    }
+}
+
+feedHorses();
+
+//Morning
+moveHorses(false, theodora, lara);
+
+
+// Bedtime
+moveHorses(true, theodora, lara, pili);
